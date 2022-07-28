@@ -7,7 +7,7 @@ from .models import Student
 def students_list(request):
     template = 'school/students_list.html'
     context = {
-        'object_list': Student.objects.all()
+        'object_list': Student.objects.all().prefetch_related('teachers')
     }
 
     # используйте этот параметр для упорядочивания результатов
